@@ -2,7 +2,8 @@
 using ShoolProject.Web.Models;
 using System.Diagnostics;
 
-namespace ShoolProject.Web.Controllers
+
+namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {

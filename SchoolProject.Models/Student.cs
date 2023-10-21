@@ -12,7 +12,7 @@ namespace SchoolProject.Models
         public DateTime DateofJoin { get; set; }
         public bool Selected { get; set; }
         [Unique]
-        public string KeyId { get; set; }
+        public string? KeyId { get; set; }
         public ICollection<Enroll> YearlySession { get; set; }
 
     }

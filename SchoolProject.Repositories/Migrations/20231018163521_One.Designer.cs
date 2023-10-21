@@ -12,8 +12,8 @@ using SchoolProject.Repositories;
 namespace SchoolProject.Repositories.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231016111440_Initial")]
-    partial class Initial
+    [Migration("20231018163521_One")]
+    partial class One
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -178,10 +178,12 @@ namespace SchoolProject.Repositories.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -218,10 +220,12 @@ namespace SchoolProject.Repositories.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -266,7 +270,6 @@ namespace SchoolProject.Repositories.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("SessionId")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<int?>("StudentId")
@@ -363,7 +366,6 @@ namespace SchoolProject.Repositories.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("KeyId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
@@ -520,7 +522,7 @@ namespace SchoolProject.Repositories.Migrations
             modelBuilder.Entity("SchoolProject.Models.AssignGrade", b =>
                 {
                     b.HasOne("SchoolProject.Models.Grade", "Grade")
-                        .WithMany("AssignGrades")
+                        .WithMany("AssignGrade")
                         .HasForeignKey("GradeId")
                         .OnDelete(DeleteBehavior.SetNull);
 
@@ -544,8 +546,7 @@ namespace SchoolProject.Repositories.Migrations
                     b.HasOne("SchoolProject.Models.Session", "Session")
                         .WithMany("Enrollment")
                         .HasForeignKey("SessionId")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("SchoolProject.Models.Student", "Student")
                         .WithMany("YearlySession")
@@ -593,7 +594,7 @@ namespace SchoolProject.Repositories.Migrations
 
             modelBuilder.Entity("SchoolProject.Models.Grade", b =>
                 {
-                    b.Navigation("AssignGrades");
+                    b.Navigation("AssignGrade");
 
                     b.Navigation("Enrolls");
 

@@ -9,7 +9,7 @@ namespace SchoolProject.Models
         public int Id { get; set; }
         public string Name { get; set; }
         [NotMapped]
-        public ICollection<AssignGrade> AssignGrades { get; set;} = new HashSet<AssignGrade>();
+        public ICollection<AssignGrade> AssignGrade { get; set;} = new HashSet<AssignGrade>();
         [NotMapped]
         public ICollection<Enroll> Enrolls { get; set; } = new HashSet<Enroll>();
         public ICollection<GradeSubject> GradeSubjects { get; set; }
