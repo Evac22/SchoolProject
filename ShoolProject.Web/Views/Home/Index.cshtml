@@ -5,4 +5,11 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <a asp-area="Admin" asp-controller="Student" asp-action="AddStudent" class="btn btn-primary">Add Student</a>
+</div>
+
+<div class="mt-5">
+    <form asp-area="Admin" asp-controller="Student" asp-action="AddStudent" method="get">
+        <button type="submit" class="btn btn-primary">Add Student</button>
+    </form>
 </div>
